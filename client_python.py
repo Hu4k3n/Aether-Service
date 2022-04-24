@@ -1,5 +1,6 @@
 import socket
 import sys
+import time
 
 
 def handler(client_socket, msg):
@@ -17,7 +18,10 @@ print >>sys.stderr, 'connecting to %s' % server_address
 try:
     sock.connect(server_address)
     print("connected")
-    handler(sock, "15anish")
+    while True:
+        handler(sock, "15anish")
+        time.sleep(2)
+
     # handler(sock, "25anish7message")
     # handler(sock, "35anish")
 except socket.error, msg:
